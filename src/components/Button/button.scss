@@ -1,0 +1,162 @@
+.ui-button {
+  $primary: #002e56;
+  $primary-color: rgb(255, 255, 255);
+  $primary-state: #000023;
+  $primary-disabled: #b6b6b6;
+
+  $secondary: transparent;
+  $secondary-color: #0057b7;
+  $secondary-state: rgba(176, 203, 234, 0.24);
+  $secondary-disabled: transparent;
+
+  $warning: #d31245;
+  $warning-color: var(--text-04);
+  $warning-state: rgb(255, 255, 255);
+  $warning-disabled: rgba(211, 18, 69, 0.24);
+
+  $override: #94bb20;
+  $override-color: rgb(255, 255, 255);
+  $override-state: rgb(121, 143, 51);
+  $override-disabled: rgba(148, 187, 32, 0.24);
+
+  $tertiary: #999999;
+  $tertiary-color: rgb(255, 255, 255);
+  $tertiary-state: #666666;
+  $tertiary-disabled: #b6b6b6;
+
+  //button Map
+  $buttons: "primary" $primary $primary-color $primary-state $primary-disabled,
+    "secondary" $secondary $secondary-color $secondary-state $secondary-disabled,
+    "warning" $warning $warning-color $warning-state $warning-disabled,
+    "override" $override $override-color $override-state $override-disabled,
+    "tertiary" $tertiary $tertiary-color $tertiary-state $tertiary-disabled;
+
+  --padding-x: 14px;
+  --padding-y: 4px;
+  --size: 0.875rem;
+  touch-action: manipulation;
+  font-family: inherit;
+  font-size: var(--size);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  padding: var(--padding-y) var(--padding-x);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  transition: background-color 0.5s ease-in;
+  line-height: 1.2;
+  min-height: 36px;
+  letter-spacing: 0.15ch;
+
+  @each $name, $bg, $color, $state, $disabled in $buttons {
+    &--#{$name} {
+      background-color: $bg;
+      color: $color;
+      &:hover {
+        background-color: $state;
+      }
+      &:focus-visible {
+        background-color: $state;
+        outline: 0;
+        box-shadow: inset 0px 0px 0px 2px #ffffff;
+      }
+      &:disabled {
+        background-color: $disabled;
+      }
+    }
+  }
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+  &--primary,
+  &--secondary,
+  &--warning,
+  &--override,
+  &--tertiary,
+  &--flat:not(.ui-button--flat) {
+    font-weight: 500;
+    border-radius: 0.5ch;
+    border: 3px solid transparent;
+  }
+  &--secondary {
+    &:focus-visible {
+      border-color: #0057b7;
+    }
+    &:disabled {
+      color: #b6b6b6;
+    }
+  }
+  &--flat {
+    background-color: transparent;
+    line-height: 1.5;
+    color: #555555;
+    font-weight: 500;
+    &:hover:not(:disabled) {
+      background-color: #dddddd;
+    }
+    &:disabled {
+      color: inherit;
+      background: inherit;
+      opacity: 0.4;
+    }
+  }
+  &--disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+  &__icon {
+    display: inline-flex;
+    &__with-label {
+      margin-inline-start: 16px;
+    }
+  }
+  &__label {
+    display: inline-flex;
+  }
+  &--normal-case {
+    text-transform: unset;
+  }
+  &--icon-only {
+    min-inline-size: 40px;
+    min-block-size: 40px;
+    padding-inline: 4px;
+  }
+}
+.ui-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  .ui-button + .ui-button {
+    margin-left: 8px;
+  }
+}
+
+.ui-floating-button {
+  --floating-button-primary-background-color: #00aeef;
+  --floating-button-primary-color: rgb(255, 255, 255);;
+  --floating-button-primary-background-color-hover: #009bd6;
+
+  cursor: pointer;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.5s ease-in;
+  color: var(--floating-button-primary-color);
+  background-color: var(--floating-button-primary-background-color);
+
+  &.ui-floating-button--large {
+    width: 54px;
+    height: 54px;
+  }
+  &:hover {
+    background-color: var(--floating-button-primary-background-color-hover);
+  }
+}

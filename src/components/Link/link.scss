@@ -1,0 +1,50 @@
+.ui-link {
+  color: #0057b7;
+  font-size: inherit;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+  text-underline-offset: 2px;
+
+  &:hover:not(:focus) {
+    text-decoration: 1px underline dashed;
+  }
+  &:focus-visible {
+    outline-width: 2px;
+  }
+  &:active {
+    color: #222222;
+  }
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+  &--disabled {
+    color: #b6b6b6;
+    cursor: not-allowed;
+  }
+  &.ui-button {
+    letter-spacing: 0;
+    text-transform: none;
+    padding: 0;
+    min-height: 0;
+    line-height: 1;
+    border-width: 1px;
+    border-radius: 0;
+    &:hover {
+      border-bottom: 1px dashed #0057b7;
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    &:focus-within {
+      border: 1px solid transparent;
+      background-color: transparent;
+      outline: 0;
+    }
+    &:focus {
+      background-color: transparent;
+      outline: 2px solid #00aeef;
+      border-color: transparent;
+    }
+  }
+}

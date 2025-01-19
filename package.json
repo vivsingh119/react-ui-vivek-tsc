@@ -1,0 +1,55 @@
+{
+  "name": "react-ui-vivek-tsc",
+  "version": "1.0.7",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "npm run clean && npm run build:scss && npm run build:esm && npm run build:cjs",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "build:scss": "rollup -c rollup.scss.config.js",
+    "build:esm": "tsc",
+    "clean": "rimraf dist",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "npm run storybook:clean && storybook build",
+    "storybook:clean":"rimraf storybook-static"
+  },
+  "author": "vivek kumar",
+  "license": "ISC",
+  "description": "",
+  "files": [
+    "dist",
+    "LICENSE",
+    "readme.md"
+  ],
+  "keywords": [
+    "react",
+    "react-ui-vivek-tsc"
+  ],
+  "peerDependencies": {
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.4",
+    "@storybook/addon-essentials": "^8.6.0-alpha.0",
+    "@storybook/addon-interactions": "^8.6.0-alpha.0",
+    "@storybook/addon-onboarding": "^8.6.0-alpha.0",
+    "@storybook/blocks": "^8.6.0-alpha.0",
+    "@storybook/react": "^8.6.0-alpha.0",
+    "@storybook/react-vite": "^8.6.0-alpha.0",
+    "@storybook/test": "^8.6.0-alpha.0",
+    "@types/react": "^19.0.7",
+    "classnames": "^2.5.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "rimraf": "^6.0.1",
+    "rollup": "^2.79.2",
+    "rollup-plugin-postcss": "^4.0.2",
+    "sass": "^1.83.4",
+    "storybook": "^8.6.0-alpha.0",
+    "tslib": "^2.8.1",
+    "typescript": "^5.7.3"
+  }
+}

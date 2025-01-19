@@ -1,0 +1,16 @@
+.ui-divider {
+    display: block;
+    border: 0;
+    border-top: 1px solid currentColor;
+    overflow: hidden;
+    margin: 8px 0;
+    height: 1px;
+    &__content,
+    &__canvas {
+      border-color: #dddddd;
+    }
+    &__alert {
+      border-color: #d31245;;
+    }
+  }
+  
